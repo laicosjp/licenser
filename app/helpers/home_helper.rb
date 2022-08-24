@@ -26,7 +26,7 @@ module HomeHelper
       { title: 'Facebook', icon: 'fa-brands fa-facebook', link: '#' },
       { title: 'Instagram', icon: 'fa-brands fa-instagram', link: '#' },
       { title: 'Twitter', icon: 'fa-brands fa-twitter', link: '#' },
-      { title: 'Github', icon: 'fa-brands fa-github', link: 'https://github.com/hulk-higakijin/unifas' },
+      { title: 'Github', icon: 'fa-brands fa-github', link: 'https://github.com/laicosjp/licenser' },
       { title: 'Dribble', icon: 'fa-brands fa-dribbble', link: '#' }
     ]
   end
