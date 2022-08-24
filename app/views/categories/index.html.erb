@@ -10,7 +10,7 @@
         <ul>
           <% category.genres.each do |genre| %>
             <li>
-              <%= link_to genre.name, genre_path(genre), class: 'link link-hover' %>
+              <%= link_to genre.name, category_genre_path(category.en_name, genre.order_num), class: 'link link-hover' %>
             </li>
           <% end %>
         </ul>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   devise_for :accounts
 
-  resources :categories, param: :en_name, only: %i[index show]
-  resources :genres, only: %i[show]
+  resources :categories, param: :en_name, only: %i[index show] do
+    resources :genres, param: :order_num, only: %i[show]
+  end
 end

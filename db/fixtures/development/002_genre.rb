@@ -22,8 +22,8 @@ genre_params = []
 
 items.each do |item|
   category = Category.find_by!(name: item[:category])
-  item[:genres].each do |genre|
-    genre_params << { category_id: category.id, name: genre[:name] }
+  item[:genres].each_with_index do |genre, i|
+    genre_params << { category_id: category.id, name: genre[:name], order_num: i + 1 }
   end
 end
 
