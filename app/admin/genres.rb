@@ -1,4 +1,11 @@
 ActiveAdmin.register Genre do
+  actions :index, :show
+
+  controller do
+    def scoped_collection
+      Genre.includes(:category)
+    end
+  end
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,5 +21,4 @@ ActiveAdmin.register Genre do
   #   permitted << :other if params[:action] == 'create' && current_user.admin?
   #   permitted
   # end
-  
 end
