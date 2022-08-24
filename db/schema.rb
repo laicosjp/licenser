@@ -20,7 +20,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_113237) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_accounts_on_email", unique: true
@@ -53,57 +52,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_113237) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.string "en_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "genres", force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_genres_on_category_id"
-  end
-
-  create_table "got_licenses", force: :cascade do |t|
-    t.bigint "account_id", null: false
-    t.bigint "license_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_got_licenses_on_account_id"
-    t.index ["license_id"], name: "index_got_licenses_on_license_id"
-  end
-
-  create_table "licenses", force: :cascade do |t|
-    t.bigint "category_id", null: false
-    t.bigint "genre_id", null: false
-    t.string "name"
-    t.text "description"
-    t.string "url"
-    t.string "sponsor"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_licenses_on_category_id"
-    t.index ["genre_id"], name: "index_licenses_on_genre_id"
-  end
-
-  create_table "target_licenses", force: :cascade do |t|
-    t.bigint "account_id", null: false
-    t.bigint "license_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_target_licenses_on_account_id"
-    t.index ["license_id"], name: "index_target_licenses_on_license_id"
-  end
-
-  add_foreign_key "genres", "categories"
-  add_foreign_key "got_licenses", "accounts"
-  add_foreign_key "got_licenses", "licenses"
-  add_foreign_key "licenses", "categories"
-  add_foreign_key "licenses", "genres"
-  add_foreign_key "target_licenses", "accounts"
-  add_foreign_key "target_licenses", "licenses"
 end
