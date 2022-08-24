@@ -1,5 +1,6 @@
 ActiveAdmin.register Category do
   actions :index, :show
+  config.sort_order = 'created_at_asc'
 
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters

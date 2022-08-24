@@ -1,5 +1,6 @@
 ActiveAdmin.register Genre do
   actions :index, :show
+  config.sort_order = 'created_at_asc'
 
   controller do
     def scoped_collection

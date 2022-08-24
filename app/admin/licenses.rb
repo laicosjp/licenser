@@ -1,4 +1,6 @@
 ActiveAdmin.register License do
+  config.sort_order = 'created_at_asc'
+
   controller do
     def scoped_collection
       License.includes(:category, :genre)
