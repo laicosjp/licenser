@@ -1,13 +1,8 @@
 class GenresController < ApplicationController
-  before_action :set_category
+  include Categorizable
+  before_action -> { find_category(params[:category_en_name]) }, only: :show
 
   def show
     @genre = @category.genres.find_by(order_num: params[:order_num])
   end
-
-  private
-
-    def set_category
-      @category = Category.find_by(en_name: params[:category_en_name])
-    end
 end
