@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :categories, param: :en_name, only: %i[index show] do
     resources :genres, param: :order_num, only: %i[show]
   end
+  resources :licenses, only: :show
 end

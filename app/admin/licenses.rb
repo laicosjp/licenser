@@ -11,7 +11,7 @@ ActiveAdmin.register License do
   #
   # Uncomment all parameters which should be permitted for assignment
   #
-  # permit_params :category_id, :genre_id, :name, :description, :url, :sponsor
+  permit_params :category_id, :genre_id, :name, :description, :url, :sponsor
   #
   # or
   #
