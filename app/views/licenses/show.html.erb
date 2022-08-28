@@ -1,0 +1,51 @@
+<%= render "layouts/navbar" %>
+<section>
+  <div class="relative max-w-screen-xl px-4 py-8 mx-auto">
+    <div class="grid items-start grid-cols-1 gap-8 md:grid-cols-2">
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-1">
+        <div class="aspect-w-1 aspect-h-1">
+          <%= image_tag "entertainment", class: "object-cover rounded-xl" %>
+        </div>
+      </div>
+      <div class="sticky top-0">
+        <p class="badge badge-primary badge-outline"><%= @license.category.name %></p>
+        <p class="badge badge-primary badge-outline"><%= @license.genre.name %></p>
+        <div class="flex mt-8">
+          <div>
+            <h1 class="text-2xl font-bold"><%= @license.name %></h1>
+            <p class="mt-0.5 text-sm">250人が登録</p>
+          </div>
+          <p class="text-lg ml-auto w-fit h-fit flex"><i class="fa-regular fa-heart px-2 my-auto"></i>21</p>
+        </div>
+        <div class="relative mt-4 group">
+          <p><%= @license.description %></p>
+        </div>
+        <form class="mt-8">
+          <fieldset class="mt-4">
+            <legend class="mb-1 text-sm font-medium">Sbscribe</legend>
+            <div class="flex gap-2">
+              <p class="my-auto">（</p>
+              <input type="text" placeholder="スコアを入力" class="input input-bordered h-8 mx-1">
+              <p class="my-auto w-fit">を</p>
+              <p class="my-auto">）</p>
+              <div class="flex flex-wrap -m-0.5">
+                <% [{ item: "target", title: "目標にする" }, { item: "got", title: "取得済み" }].each do |list| %>
+                  <label for="<%= list[:item] %>" class="cursor-pointer p-0.5">
+                    <input type="radio" name="size" id="<%= list[:item] %>" class="sr-only peer">
+                    <span
+                      class="inline-flex items-center justify-center w-full h-8 text-xs font-medium border rounded-md px-2 group peer-checked:bg-primary peer-checked:text-white">
+                      <%= list[:title] %></span>
+                  </label>
+                <% end %>
+              </div>
+            </div>
+          </fieldset>
+          <div class="flex mt-8">
+            <button class="btn btn-sm btn-primary">subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<%= render "comment" %>

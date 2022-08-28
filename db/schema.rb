@@ -62,6 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_115813) do
   create_table "genres", force: :cascade do |t|
     t.bigint "category_id", null: false
     t.string "name", null: false
+    t.integer "order_num", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_genres_on_category_id"
